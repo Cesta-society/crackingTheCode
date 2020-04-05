@@ -1,5 +1,5 @@
 import axios from '../axios';
-import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS} from './types'
+import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS, USERS_DETAIL} from './types'
 
 export const signIn = (userId)=>{
     return {
@@ -22,4 +22,10 @@ export const addQuestion= (formValues)=> async (dispatch)=>{
 export const fetchQuestions= () => async (dispatch) => {
     const response= await axios.get('/quiz');
     dispatch({type: FETCH_QUESTIONS, payload: response.data});
+};
+
+export const usersDetail= (name, count) => async (dispatch) => {
+    console.log("axios="+count);
+    const response= await axios.post('/user',{user:name, points: count});
+    dispatch({type: USERS_DETAIL, payload: response.data});
 };

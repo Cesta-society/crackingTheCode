@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch} from 'react-router-dom';
 import Header from './Header';
+import Questions from './Questions';
 import AddQuestion from './AddQuestion';
 import history from '../history';
 
@@ -12,7 +13,8 @@ const App= ()=>{
                 <div>
                     <Header />
                     <Switch>
-                        <Route path="/" exact={true} component= {AddQuestion} />
+                        <Route path="/" exact={true} component= {Questions} />
+                        <Route path="/admin" exact={true} component= {AddQuestion} />
                     </Switch>
                 </div>
             </Router>
