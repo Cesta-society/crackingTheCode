@@ -1,0 +1,31 @@
+{
+  "quiz": [
+    {
+      "q1": "feeere",
+      "o1": "r44r",
+      "o2": "4ew",
+      "o3": "fref",
+      "o4": "frdf",
+      "ans": "C",
+      "id": 1
+    },
+    {
+      "q1": "Who is the prime minister of India",
+      "o1": "Godi",
+      "o2": "Modi",
+      "o3": "Dodi",
+      "o4": "Sodi",
+      "ans": "B",
+      "id": 2
+    },
+    {
+      "q1": "Who is the prime minister of India",
+      "o1": "Godi",
+      "o2": "Modi",
+      "o3": "Dodi",
+      "o4": "Sodi",
+      "ans": "B",
+      "id": 3
+    }
+  ]
+}
