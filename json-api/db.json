@@ -1,6 +1,24 @@
 {
   "quiz": [
+    {
+      "q1": "Who sang 2002?",
+      "o1": "Annie Marie",
+      "o2": "Justin Bieber",
+      "o3": "Nick Jonas",
+      "o4": "Taylor Swift",
+      "ans": "A",
+      "id": 1
+    }
   ],
   "user": [
+    {
+      "user": "gg",
+      "points": 1,
+      "id": 1
+    },
+    {
+      "points": 1,
+      "id": 2
+    }
   ]
 }

@@ -22,11 +22,20 @@ class Questions extends React.Component {
         });
         console.log(formValues);
         this.setState({count:c});
-        this.props.usersDetail(formValues.name, this.state.count);
+        this.props.usersDetail(this.props.username, this.state.count);
         this.setState({flag:1})
     }
 
+    username= ()=> {
+        if(!this.props.isSignedIn)
+            return <div className="ui error message">No user Selected</div>
+        else
+            return <>{this.props.username}</>
+    }
+
     result = ()=> {
+        if(!this.props.isSignedIn)
+            return <></>;
         if(this.state.flag==1)
             return (
                 <div>
@@ -42,37 +51,15 @@ class Questions extends React.Component {
                 
     }
 
-    renderError= ({error, touched})=>{
-        if(touched && error){
-            return (
-                <div className="ui error message">
-                    <div className="header">{error}</div>
-                </div>
-            );
-        }
-    }
-
-
     renderInput= (props)=>{
         console.log(props);
-        const className= `field ${props.meta.error && props.meta.touched?'error':''} `;
-        if(props.type==='radio')
-            return (
-                <div>
-                    <input style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>
-                    {props.option}
-                    <br/>
-                </div>
-            );   
-        else
-            return (
-                <div className={className}>
-                    <label>{props.label}</label><br/>
-                    <input style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>
-                    {this.renderError(props.meta)}
-                    <br/>
-                </div>
-            );
+        return (
+            <div className="field">
+                <input style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>
+                {props.option}
+                <br/>
+            </div>
+        );   
     }
 
 
@@ -105,7 +92,7 @@ class Questions extends React.Component {
                 <h2>Streams</h2>
                 <div className="ui celled list">
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-                        <Field name='name' component={this.renderInput} label="User Name" width='50vw'/>
+                        <h4>User Name: {this.username()}</h4>
                         {this.renderList()}
                         {this.result()}   
                     </form>
@@ -126,8 +113,11 @@ const validate= (formValues) => {
 }
 
 const mapStateToProps= (state)=>{
+    console.log(state.auth.username);
     return { 
-        questions: Object.values(state.questions)
+        questions: Object.values(state.questions),
+        username:  state.auth.username,
+        isSignedIn: state.auth.isSignedIn
     };
 };
 

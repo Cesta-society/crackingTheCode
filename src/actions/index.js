@@ -1,10 +1,10 @@
 import axios from '../axios';
 import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS, USERS_DETAIL} from './types'
 
-export const signIn = (userId)=>{
+export const signIn = (user)=>{
     return {
         type: SIGN_IN,
-        payload: userId
+        payload: user
     }
 };
 
