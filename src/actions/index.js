@@ -1,4 +1,5 @@
 import axios from '../axios';
+import history from '../history';
 import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS, USERS_DETAIL} from './types'
 
 export const signIn = (user)=>{
@@ -17,6 +18,7 @@ export const signOut = ()=>{
 export const addQuestion= (formValues)=> async (dispatch)=>{
     const response = await axios.post('/quiz', {...formValues} );
     dispatch({type: ADD_QUESTION, payload: response.data});
+    history.push('/');
 };
 
 export const fetchQuestions= () => async (dispatch) => {

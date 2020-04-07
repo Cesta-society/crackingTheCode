@@ -26,6 +26,15 @@
       "o4": "David Lyncher",
       "ans": "C",
       "id": 3
+    },
+    {
+      "q1": "Who is India's current Prime Minister?",
+      "o1": "Sodi Ji",
+      "o2": "Dodi Ji",
+      "o3": "Godi JI",
+      "o4": "Modi JI",
+      "ans": "D",
+      "id": 4
     }
   ],
   "user": [
