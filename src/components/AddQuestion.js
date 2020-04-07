@@ -24,7 +24,7 @@ class AddQuestion extends React.Component {
     renderInput= (props)=>{
         console.log(props);
         const className= `field ${props.meta.error && props.meta.touched?'error':''} `;
-        if(props.type!='radio')
+        if(props.type!=='radio')
             return (
                 <div className={className}>
                     {props.label}

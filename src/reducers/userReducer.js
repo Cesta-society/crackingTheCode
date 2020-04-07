@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {USERS_DETAIL} from '../actions/types';
 
 export default (state={}, action)=>{

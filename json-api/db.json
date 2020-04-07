@@ -8,6 +8,24 @@
       "o4": "Taylor Swift",
       "ans": "A",
       "id": 1
+    },
+    {
+      "q1": "What is Phul Deyi",
+      "o1": "Uttarakhand Flower",
+      "o2": "Uttarakhand Flower Festival",
+      "o3": "Uttarakhand Animal",
+      "o4": "Uttarakhand Peacock",
+      "ans": "B",
+      "id": 2
+    },
+    {
+      "q1": "What directed Schindler's List?",
+      "o1": "Alfred Hitcock",
+      "o2": "Anurag  Kashyap",
+      "o3": "Steven Speilberg",
+      "o4": "David Lyncher",
+      "ans": "C",
+      "id": 3
     }
   ],
   "user": [
@@ -17,8 +35,84 @@
       "id": 1
     },
     {
+      "user": "KUNAL TIWARI",
       "points": 1,
       "id": 2
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 3
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 4
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 1,
+      "id": 5
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 6
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 7
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 1,
+      "id": 8
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 2,
+      "id": 9
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 10
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 11
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 12
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 13
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 3,
+      "id": 14
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 2,
+      "id": 15
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 0,
+      "id": 16
+    },
+    {
+      "user": "Arjit Bhandari",
+      "points": 3,
+      "id": 17
     }
   ]
 }
