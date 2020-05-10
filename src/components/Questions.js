@@ -4,11 +4,12 @@ import { reduxForm } from 'redux-form';
 import { fetchQuestions } from '../actions';
 import { usersDetail } from '../actions';
 import Question from './Question';
+import Timer from './Timer';
 
 class Questions extends React.Component {
     constructor(props){
         super(props);
-        this.state= {flag:0,count:0};
+        this.state= {flag:0,count:0,check:true};
     }
 
     componentDidMount(){
@@ -16,6 +17,7 @@ class Questions extends React.Component {
     }
 
     onSubmit= async (formValues) => {
+        console.log("he");
         let c=0;
         await this.props.questions.map((question)=> {
             if(formValues[`ans${question.id}`]===question.ans)
@@ -28,7 +30,6 @@ class Questions extends React.Component {
     }
 
     username= ()=> {
-
         if(!this.props.isSignedIn)
             return <div className="ui error message">No user Selected</div>
 
@@ -47,17 +48,22 @@ class Questions extends React.Component {
         else
             return (
                 <div>
-                    <button className="ui button primary">Submit</button>
+                    <button id="sub" className="ui button primary">Submit</button>
                 </div>
-            )
-                
+            );      
     }
 
     render() {
+        if(!this.props.validating && this.state.flag==0)
+            document.getElementById("sub").click();
+        
         return (
             <div>
-                <h2>Arjit React Quiz</h2>
+                <h2>CESTA LOCKDOWN QUIZ</h2>
                 <div className="ui celled list">
+                    <div class="text-right">
+                        <Timer startCount="10" />
+                    </div>
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                         <h4>User Name: {this.username()}</h4>
                         <Question />
@@ -79,10 +85,12 @@ const validate= (formValues) => {
 }
 
 const mapStateToProps= (state)=>{
+    console.log("fs="+state.time.valid);
     return { 
         questions: Object.values(state.questions),
         username:  state.auth.username,
-        isSignedIn: state.auth.isSignedIn
+        isSignedIn: state.auth.isSignedIn,
+        validating: state.time.valid
     };
 };
 

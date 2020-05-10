@@ -1,8 +1,34 @@
 {
   "quiz": [
-    
+    {
+      "q1": "dasdsa",
+      "o1": "sasdx",
+      "o2": "sdax",
+      "o3": "xax",
+      "o4": "sas",
+      "ans": "C",
+      "id": 1
+    },
+    {
+      "q1": "dsax",
+      "o1": "sxz",
+      "o2": "szx",
+      "o3": "cxzxzc",
+      "o4": "cxzcxz",
+      "ans": "D",
+      "id": 2
+    }
   ],
   "user": [
-
+    {
+      "user": "Vikiran DTC",
+      "points": 0,
+      "id": 1
+    },
+    {
+      "user": "Vikiran DTC",
+      "points": 2,
+      "id": 2
+    }
   ]
 }

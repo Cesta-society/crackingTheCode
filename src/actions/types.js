@@ -7,3 +7,5 @@ export const DELETE_QUESTION= 'DELETE_QUESTION';
 export const EDIT_STREAM= 'EDIT_STREAM';
 export const USERS_DETAIL= 'USER_DETAIL';
 export const FETCH_USERS= 'FETCH_USERS';
+export const TIME_VALID= 'TIME_VALID';
+export const TIME_INVALID= 'TIME_INVALID';

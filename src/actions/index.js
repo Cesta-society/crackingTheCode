@@ -1,6 +1,6 @@
 import axios from '../axios';
 import history from '../history';
-import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS} from './types'
+import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS, TIME_VALID, TIME_INVALID} from './types'
 
 export const signIn = (user)=>{
     return {
@@ -12,6 +12,18 @@ export const signIn = (user)=>{
 export const signOut = ()=>{
     return {
         type: SIGN_OUT
+    }
+};
+
+export const timing_valid = ()=>{
+    return {
+        type: TIME_VALID
+    }
+};
+
+export const timing_invalid = ()=>{
+    return {
+        type: TIME_INVALID
     }
 };
 
