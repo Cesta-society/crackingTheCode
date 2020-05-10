@@ -50,11 +50,17 @@ class Question extends React.Component {
 
     Card= ()=>{
         let questions= Object.values(this.props.question);
+        let c=0;
         return questions.map((question)=> {
             this.flag= question.id;
+            if(question.id===this.state.id)
+                this.color= 'green';
+            else
+                this.color= 'red';
+
             return (
                 <Link to="" className="col-2" key={question.id}>
-                    <div onClick={()=> this.onClick(question.id)} style={{backgroundColor:'green',height:'5vh',width:'5vw'}} className="ui small button test ad" data-text={question.id}></div>
+                    <div onClick={()=> this.onClick(question.id)} style={{backgroundColor:`${this.color}`,height:'5vh',width:'5vw'}} className="ui small button test ad" data-text={++c}></div>
                 </Link>
             );
         });

@@ -3,6 +3,8 @@ import { Router, Route, Switch} from 'react-router-dom';
 import Header from './Header';
 import Questions from './Questions';
 import AddQuestion from './AddQuestion';
+import DeleteQuestion from './DeleteQuestion';
+import Results from './Results';
 import history from '../history';
 
 const App= ()=>{
@@ -14,7 +16,9 @@ const App= ()=>{
                     <Header />
                     <Switch>
                         <Route path="/" exact={true} component= {Questions} />
-                        <Route path="/admin" exact={true} component= {AddQuestion} />
+                        <Route path="/admin/add" exact={true} component= {AddQuestion} />
+                        <Route path="/admin/delete" exact={true} component= {DeleteQuestion} />
+                        <Route path="/admin/results" exact={true} component= {Results} />
                     </Switch>
                 </div>
             </Router>
