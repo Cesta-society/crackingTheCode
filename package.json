@@ -5,13 +5,13 @@
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "nodemon ./bin/www",
-    "server": "node ./bin/www",    
-    "client": "npm start --prefix client",    
+    "server": "node ./bin/www",
+    "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "engines":{
-    "node":"10.16.0"
+  "engines": {
+    "node": "10.16.0"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -28,6 +28,7 @@
     "mongoose": "^5.9.13",
     "mongoose-sequence": "^5.2.2",
     "morgan": "~1.9.1",
+    "path": "^0.12.7",
     "pug": "^2.0.4"
   }
 }
