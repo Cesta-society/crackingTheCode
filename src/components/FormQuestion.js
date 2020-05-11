@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 class FormQuestion extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-
     componentDidMount(){
         document.body.classList.add("modal-open");
     }

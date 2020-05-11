@@ -17,14 +17,14 @@ class Timer extends React.Component {
 
     renderinfo= ()=>{
         const {count}= this.state;
-        if(count==0){
+        if(count===0){
             clearInterval(this.myInterval);
             this.TimingValidity();
         }
     }
 
     render(){
-        {this.renderinfo()}
+        this.renderinfo();
         return (
             <div>
                 <h4>Time Left: {this.state.count}s</h4>

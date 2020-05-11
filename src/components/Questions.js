@@ -17,7 +17,6 @@ class Questions extends React.Component {
     }
 
     onSubmit= async (formValues) => {
-        console.log("he");
         let c=0;
         await this.props.questions.map((question)=> {
             if(formValues[`ans${question.id}`]===question.ans)
@@ -54,15 +53,15 @@ class Questions extends React.Component {
     }
 
     render() {
-        if(!this.props.validating && this.state.flag==0)
+        if(!this.props.validating && this.state.flag===0)
             document.getElementById("sub").click();
         
         return (
             <div>
                 <h2>CESTA LOCKDOWN QUIZ</h2>
                 <div className="ui celled list">
-                    <div class="text-right">
-                        <Timer startCount="10" />
+                    <div className="text-right">
+                        <Timer startCount="100" />
                     </div>
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                         <h4>User Name: {this.username()}</h4>
