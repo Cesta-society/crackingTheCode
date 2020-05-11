@@ -20,14 +20,20 @@ app.use(express.json());
 app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('http://localhost:3001/proxy/quiz', questions);
-app.use('http://localhost:3001/proxy/user', users);
+app.use('/quiz', questions);
+app.use('/user', users);
 
 require('./prod.js')(app);
 
 app.set("view engine", "pug");
 
 app.use(express.static(path.join(__dirname, 'Client/build')));
+
+const port=process.env.PORT || 3001;
+console.log(port);
+const server=app.listen(port, ()=> console.log(`Listening on port ${port}...`));
+var env = process.env.NODE_ENV || 'development';
+console.log(env);
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'Client/build')));
@@ -37,12 +43,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/Client/public/index.html'));
+    res.sendFile(path.join(__dirname+'/Client/public/index.html'));
 })
 
-app.get('http://localhost:3001', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-
-module.exports= app;
+module.exports= server;

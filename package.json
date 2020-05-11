@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "client-install": "npm install --prefix Client",
-    "start": "node ./bin/www",
-    "server": "nodemon ./bin/www",
+    "start": "node app.js",
+    "server": "nodemon node.js",
     "client": "npm start --prefix Client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Client && npm run build --prefix Client"
