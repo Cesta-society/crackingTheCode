@@ -40,7 +40,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/Client/public/index.html'));
 })
 
-app.get('/', function(req, res, next) {
+app.get('/proxy', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
