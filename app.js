@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/proxy/quiz', questions);
-app.use('/proxy/user', users);
+app.use('http://localhost:3001/proxy/quiz', questions);
+app.use('http://localhost:3001/proxy/user', users);
 
 require('./prod.js')(app);
 
@@ -40,7 +40,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/Client/public/index.html'));
 })
 
-app.get('/proxy', function(req, res, next) {
+app.get('http://localhost:3001', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
