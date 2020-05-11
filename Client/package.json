@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy":"http://localhost:3001",
+  "proxy":"https://react-quiz123.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",
