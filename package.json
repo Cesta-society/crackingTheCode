@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "client-install": "npm install --prefix Client",
     "start": "node app.js",
+    "client-install": "npm install --prefix Client",
     "server": "nodemon node.js",
     "client": "npm start --prefix Client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
