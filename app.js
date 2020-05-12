@@ -29,21 +29,23 @@ app.set("view engine", "pug");
 
 app.use(express.static(path.join(__dirname, 'Client/build')));
 
+
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'Client/build')));
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname ,'Client','build','index.html'));
+  }); 
+}
+else
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/Client/public/index.html'));
+  });
+
+
 const port=process.env.PORT || 8080;
 console.log(port);
 const server=app.listen(port, ()=> console.log(`Listening on port ${port}...`));
 var env = process.env.NODE_ENV || 'development';
 console.log(env);
-
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'Client/build')));
-    app.get('*', (req, res) => {
-      res.sendfile(path.join(__dirname = 'Client/build/index.html'));
-    }); 
-}
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/Client/public/index.html'));
-})
 
 module.exports= server;
