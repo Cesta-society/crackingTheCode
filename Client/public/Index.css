@@ -3,13 +3,13 @@
 
 .main {
   background-size: cover;
-  background-image: url("./assests/background-cement-concrete-paint-242236.jpg") !important;
+  background-image: url("./assests/Radiant-Gradient.svg") !important;
 }
 
 .Quiz-title {
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #121601;
+  color: #d0ff00;
   font-family: "Monoton";
   font-style: normal;
   font-weight: 500;
@@ -26,7 +26,7 @@
 }
 
 .userName {
-  color: rgb(8, 184, 60);
+  color: rgb(75, 8, 184);
   padding-top: 15px;
   padding-bottom: 10px;
   font-size: 1.5rem;
