@@ -31,7 +31,7 @@ export const addQuestion= (formValues)=> async (dispatch)=>{
     const response = await axios.post('/quiz', {...formValues} );
     console.log(response.data);
     dispatch({type: ADD_QUESTION, payload: response.data});
-    history.push('/');
+    window.location.replace('/admin/add');
     alert('A question has been added');
 };
 
