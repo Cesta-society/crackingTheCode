@@ -30,7 +30,8 @@ class Question extends React.Component {
   };
 
   renderQuestion = () => {
-    if (!this.props.question[`${this.state.id}`]) return <div>Loading...</div>;
+    if (!this.props.question[`${this.state.id}`]) 
+      return <div>Loading...</div>;
 
     let name = "ans" + this.props.question[`${this.state.id}`].id;
     return (
@@ -129,6 +130,9 @@ class Question extends React.Component {
   };
 
   render() {
+    if(!this.props.isSignedIn)
+      return <></>;
+      
     return (
       <div>
         {this.renderQuestion()}
@@ -148,6 +152,7 @@ class Question extends React.Component {
 const mapStateToProps = (state) => {
   return {
     question: state.questions,
+    isSignedIn: state.auth.isSignedIn
   };
 };
 
