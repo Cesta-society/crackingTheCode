@@ -15,33 +15,33 @@ class Users extends React.Component {
         var c=0;
         
         return (
-            this.props.users
-                .sort((a, b) => a.points > b.points ? -1 : 1)
-                .map( (user) =>{
-                return (
-                    <div className="item" key={user.id}>
-                        <div className="row">
-                            <div className="col-4 text-center">
-                            <b>Rank</b> <br />
-                            {++c}
-                            </div>
-                            <div className="col-4 text-center">
-                            <b>Name</b> <br />   
-                                {user.user}
-                            </div>
-                            <div className="col-4 text-center">
-                            <b>Score</b> <br />   
-                                {user.points}
-                            </div>
-                        </div>
-                    </div>
-                );
-            })
+            <table style={{width:"100%"}}>
+                <tr>
+                    <th>S.No</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+                {this.props.users
+                    .sort((a, b) => a.points > b.points ? -1 : 1)
+                    .map( (user) =>{
+                        return (
+                        <tr>
+                            <td>{++c}</td>
+                            <td>{user.email}</td>
+                            <td>{user.user}</td>
+                            <td>{user.points}</td>
+                        </tr>
+                        );
+                    })
+                }
+            </table>
         );
     }
 }
 
 const mapStateToProps= (state)=>{
+    console.log(Object.values(state.users));
     return { 
         users: Object.values(state.users),
     };

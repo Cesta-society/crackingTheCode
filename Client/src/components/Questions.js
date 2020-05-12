@@ -24,7 +24,7 @@ class Questions extends React.Component {
         });
         console.log(formValues);
         this.setState({count:c});
-        this.props.usersDetail(this.props.username, this.state.count);
+        this.props.usersDetail(this.props.username, this.props.email, this.state.count);
         this.setState({flag:1})
     }
 
@@ -61,7 +61,7 @@ class Questions extends React.Component {
                 <h1 className="Quiz-title text-center">CESTA <br /> LOCKDOWN <br /> QUIZ</h1>
                 <div className="ui celled list">
                     <div className="text-right">
-                        <Timer startCount="100" />
+                        <Timer startCount="1500" />
                     </div>
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                         <h4 className="userName">USER :-   {this.username()}</h4>
@@ -84,10 +84,11 @@ const validate= (formValues) => {
 }
 
 const mapStateToProps= (state)=>{
-    console.log("fs="+state.time.valid);
+    console.log("fs="+state.auth.email);
     return { 
         questions: Object.values(state.questions),
         username:  state.auth.username,
+        email: state.auth.email,
         isSignedIn: state.auth.isSignedIn,
         validating: state.time.valid
     };

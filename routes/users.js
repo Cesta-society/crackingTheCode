@@ -8,9 +8,13 @@ router.get('/',async (req,res)=>{
 });
 
 router.post('/',async (req,res)=>{
-    
-    const user= new User(req.body);
-    await user.save();
+
+    const unique=await User.findOne({email: req.body.email});
+
+    if(!unique){
+        const user= new User(req.body);
+        await user.save();
+    }
     
     res.send(req.body);
 });

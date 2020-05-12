@@ -53,12 +53,13 @@ export const deleteQuestion= (id)=> async (dispatch)=> {
     alert('A question has been deleted');
 }
 
-export const usersDetail= (name, count) => async (dispatch) => {
-    const response= await axios.post('/user',{user:name, points: count});
+export const usersDetail= (name, email, count) => async (dispatch) => {
+    const response= await axios.post('/user',{user:name, email:email, points: count});
     dispatch({type: USERS_DETAIL, payload: response.data});
 };
 
 export const fetchUsers= () => async (dispatch) => {
     const response= await axios.get('/user');
+    console.log(response.data);
     dispatch({type: FETCH_USERS, payload: response.data});
 };
