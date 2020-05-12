@@ -58,7 +58,7 @@ class Questions extends React.Component {
         
         return (
             <div>
-                <h1 className="Quiz-title text-center">CESTA <br /> LOCKDOWN <br /> QUIZ</h1>
+                <h1 className="Quiz-title text-center">CESTA <br /> RAPID-FIRE <br /> QUIZ</h1>
                 <div className="ui celled list">
                     <div className="text-right">
                         <Timer startCount="1500" />
