@@ -21,13 +21,16 @@ class Users extends React.Component {
                 return (
                     <div className="item" key={user.id}>
                         <div className="row">
-                            <div className="col-4">
-                                {++c}
+                            <div className="col-4 text-center">
+                            <b>Rank</b> <br />
+                            {++c}
                             </div>
-                            <div className="col-4">
+                            <div className="col-4 text-center">
+                            <b>Name</b> <br />   
                                 {user.user}
                             </div>
-                            <div className="col-4">
+                            <div className="col-4 text-center">
+                            <b>Score</b> <br />   
                                 {user.points}
                             </div>
                         </div>

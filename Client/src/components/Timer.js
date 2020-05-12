@@ -27,7 +27,7 @@ class Timer extends React.Component {
         this.renderinfo();
         return (
             <div>
-                <h4>Time Left: {this.state.count}s</h4>
+                <h4 className="timer">Time Left: {this.state.count}s</h4>
             </div>
         );
     }

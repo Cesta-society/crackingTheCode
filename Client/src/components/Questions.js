@@ -29,11 +29,11 @@ class Questions extends React.Component {
     }
 
     username= ()=> {
-        if(!this.props.isSignedIn)
+        if(!this.props.isSignedIn) 
             return <div className="ui error message">No user Selected</div>
 
         return <>{this.props.username}</>
-    }
+    } 
 
     result = ()=> {
         if(!this.props.isSignedIn)
@@ -46,8 +46,8 @@ class Questions extends React.Component {
             );
         else
             return (
-                <div>
-                    <button id="sub" className="ui button primary">Submit</button>
+                <div className="question-submit">
+                    <button id="sub" className="ui btn btn-danger btn-lg">Click here after completeing the Quiz</button>
                 </div>
             );      
     }
@@ -58,13 +58,13 @@ class Questions extends React.Component {
         
         return (
             <div>
-                <h2>CESTA LOCKDOWN QUIZ</h2>
+                <h1 className="Quiz-title text-center">CESTA <br /> LOCKDOWN <br /> QUIZ</h1>
                 <div className="ui celled list">
                     <div className="text-right">
                         <Timer startCount="100" />
                     </div>
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-                        <h4>User Name: {this.username()}</h4>
+                        <h4 className="userName">USER :-   {this.username()}</h4>
                         <Question />
                         {this.result()}
                     </form>
