@@ -29,7 +29,7 @@ app.set("view engine", "pug");
 
 app.use(express.static(path.join(__dirname, 'Client/build')));
 
-const port=process.env.PORT || 3001;
+const port=process.env.PORT || 8080;
 console.log(port);
 const server=app.listen(port, ()=> console.log(`Listening on port ${port}...`));
 var env = process.env.NODE_ENV || 'development';
