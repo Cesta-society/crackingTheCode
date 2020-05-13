@@ -37,12 +37,18 @@
 }
 
 .main-question {
-  font-family: "Roboto", sans-serif;
+  font-family:  'Quicksand';
   font-size: 2rem;
 }
+
+.option {
+  font-family:  'Quicksand';
+  font-size: 1.5rem;
+}
+
 .question-submit {
   text-align: center;
-  margin-bottom: 20px;
+  padding-top: 10vh;
 }
 
 .direction > h5{ 

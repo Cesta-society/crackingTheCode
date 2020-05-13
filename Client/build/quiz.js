@@ -8,4 +8,4 @@ $(document).on("keydown", function (e) {
     }
 });
 
-//document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('contextmenu', event => event.preventDefault());

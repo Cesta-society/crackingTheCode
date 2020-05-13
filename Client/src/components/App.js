@@ -12,7 +12,7 @@ class App extends React.Component{
 
     render(){
         return (
-            <div className="ui container">
+            <div className="ui container" style={{paddingBottom:'10vh'}}>
                 <Router history={history}>
                     <div>
                         <Header />

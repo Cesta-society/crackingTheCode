@@ -40,8 +40,8 @@ class Questions extends React.Component {
             return <></>;
         if(this.state.flag===1)
             return (
-                <div>
-                    <h5>You score {this.state.count} points.</h5>
+                <div className="question-submit">
+                    <h5 className="main-question">You score {this.state.count} points.</h5>
                 </div>
             );
         else
@@ -55,6 +55,8 @@ class Questions extends React.Component {
     render() {
         if(!this.props.validating && this.state.flag===0)
             document.getElementById("sub").click();
+
+        
         
         return (
             <div>

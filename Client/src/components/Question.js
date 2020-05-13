@@ -15,6 +15,7 @@ class Question extends React.Component {
   }
 
   renderInput = (props) => {
+    console.log(props);
     return (
       <div className="field">
         <input
@@ -23,7 +24,7 @@ class Question extends React.Component {
           type={props.type}
           autoComplete="off"
         />
-        {props.option}
+        <a className="option">{props.option}</a>
         <br />
       </div>
     );
@@ -39,9 +40,9 @@ class Question extends React.Component {
         {/* <i className="large middle aligned icon question" /> */}
         <div className="content">
           <div id="question">
-            <h3 className="main-question">
-            Q{this.state.id}  {this.props.question[`${this.state.id}`].q1} 
-            </h3>
+            <h4 className="main-question">
+              Q{this.state.id}.  {this.props.question[`${this.state.id}`].q1} 
+            </h4>
             <br />
           </div>
           <div>
@@ -91,8 +92,10 @@ class Question extends React.Component {
     let c = 0;
     return questions.map((question) => {
       this.flag = question.id;
-      if (question.id === this.state.id) this.color = "#1ac969";
-      else this.color = "#f01f53";
+      if (question.id === this.state.id) 
+        this.color = "#1ac969";
+      else 
+        this.color = "#f01f53";
 
       return (
         <Link to="" className="col-2" key={question.id}>
