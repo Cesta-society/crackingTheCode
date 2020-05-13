@@ -23,7 +23,7 @@ class Users extends React.Component {
                     <th>Points</th>
                 </tr>
                 {this.props.users
-                    .sort((a, b) => a.points > b.points ? -1 : 1)
+                    .sort((a, b) => Number(a.points) > Number(b.points) ? -1 : 1)
                     .map( (user) =>{
                         return (
                         <tr>
