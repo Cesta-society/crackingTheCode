@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FormQuestion from './FormQuestion';
+import ModalQuestion from './ModalQuestion';
 import { fetchQuestions, deleteQuestion } from '../actions';
+import { Link } from "react-router-dom";
 
-class DeleteQuestion extends React.Component {
+class PageQuestion extends React.Component {
 
     componentDidMount() {
         this.props.fetchQuestions();
@@ -13,7 +14,7 @@ class DeleteQuestion extends React.Component {
     renderActions(id){
         return (
             <React.Fragment>
-                 <button onClick={()=> this.props.deleteQuestion(id)} className="ui button negative">Delete</button>
+                <button onClick={()=> this.props.deleteQuestion(id)} className="ui button negative">Delete</button>
                 <button type="button" className="btn btn-primary"  data-dismiss="modal">Cancel</button>
             </React.Fragment>
         );
@@ -26,11 +27,20 @@ class DeleteQuestion extends React.Component {
     renderList(){
        return this.props.questions.map( (ques) =>{
             return (
-                <div className="item" key={ques.id}>
+                <div className="item" key={ques._id}>
                     <i className="large middle aligned icon camera" />
-                    <div className="content">
-                        {ques.q1}
-                        <FormQuestion value={ques.id} op="Delete" title="Delete Question" body={this.renderContent()} action={this.renderActions(ques.id)} />
+                    <div className="content row">
+                        <div className="col-4">
+                            {ques.q1}
+                        </div>
+                        <div className="col-4">
+                            <Link to={`/admin/update/${ques.id}`}>
+                                Edit
+                            </Link>
+                        </div>
+                        <div className="col-4">
+                            <ModalQuestion value={ques.id} op="Delete" title="Delete Question" body={this.renderContent()} action={this.renderActions(ques.id)} />
+                        </div>
                     </div>
                 </div>
             )
@@ -54,4 +64,4 @@ const mapStateToProps= (state, ownProps)=> {
     }  
 }
 
-export default connect(mapStateToProps, { fetchQuestions, deleteQuestion })(DeleteQuestion);
+export default connect(mapStateToProps, { fetchQuestions, deleteQuestion })(PageQuestion);

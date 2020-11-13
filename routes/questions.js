@@ -16,6 +16,17 @@ router.post('/',async (req,res)=>{
     res.send(req.body);
 });
 
+//Update
+router.put('/:id',async (req,res)=>{
+    
+    let question = await Question.findByIdAndUpdate(req.params.id, req.body,  {new: true});
+  
+    await question.save();
+    res.send(req.body);
+});
+
+
+
 router.delete('/:id', async (req,res)=>{
     
     const remove=await Question.deleteOne({id:req.params.id});

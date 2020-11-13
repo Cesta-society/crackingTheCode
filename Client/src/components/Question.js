@@ -137,15 +137,20 @@ class Question extends React.Component {
       return <></>;
       
     return (
-      <div>
-        {this.renderQuestion()}
-        <div className="row">
-        {this.Column("Prev", this.state.id - 1)}
-        {this.Column("Next", this.state.id + 1)}
+      <div className="row">
+        <div className="col-sm-3">
+          <div className="row">{this.Card()}</div>
+        </div>
+        <div className="col-sm-9">
+          {this.renderQuestion()}
+          <div className="row">
+            {this.Column("Prev", this.state.id - 1)}
+            {this.Column("Next", this.state.id + 1)}
+          </div>
         </div>
         <br />
         <br />
-        <div className="row">{this.Card()}</div>
+        
         <br />
       </div>
     );

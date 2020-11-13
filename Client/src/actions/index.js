@@ -1,6 +1,6 @@
 import axios from '../axios';
 import history from '../history';
-import { SIGN_IN, SIGN_OUT, ADD_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS, TIME_VALID, TIME_INVALID} from './types'
+import { SIGN_IN, SIGN_OUT, ADD_QUESTION, UPDATE_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS, TIME_VALID, TIME_INVALID} from './types'
 
 export const signIn = (user)=>{
     return {
@@ -52,6 +52,14 @@ export const deleteQuestion= (id)=> async (dispatch)=> {
     window.location.replace('/');
     alert('A question has been deleted');
 }
+
+export const updateQuestion= (id, formValues)=> async (dispatch)=> {
+    console.log("Edit="+formValues)
+    const response=  await axios.put(`/quiz/${id}`, formValues);
+    dispatch({ type: UPDATE_QUESTION, payload: response})
+    window.location.replace('/');
+    alert('A question has been updated');
+};
 
 export const usersDetail= (name, email, count) => async (dispatch) => {
     const response= await axios.post('/user',{user:name, email:email, points: count});

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {ADD_QUESTION, DELETE_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION} from '../actions/types';
+import {UPDATE_QUESTION, ADD_QUESTION, DELETE_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION} from '../actions/types';
 
 export default (state={}, action)=>{
     switch (action.type) {
@@ -8,6 +8,8 @@ export default (state={}, action)=>{
         case FETCH_QUESTION:
             return { ...state, [action.payload.id]: action.payload };
         case ADD_QUESTION:
+            return { ...state, [action.payload.id]: action.payload };
+        case UPDATE_QUESTION:
             return { ...state, [action.payload.id]: action.payload };
         case DELETE_QUESTION:
             return _.omit(state, action.payload);
