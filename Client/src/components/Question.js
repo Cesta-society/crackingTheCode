@@ -139,7 +139,7 @@ class Question extends React.Component {
     return (
       <div className="row">
         <div className="col-sm-3">
-          <div className="row">{this.Card()}</div>
+          <div className="row text-left">{this.Card()}</div>
         </div>
         <div className="col-sm-9">
           {this.renderQuestion()}
