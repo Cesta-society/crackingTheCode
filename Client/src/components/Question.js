@@ -141,7 +141,7 @@ class Question extends React.Component {
         <div className="col-sm-3">
           <div className="row text-left">{this.Card()}</div>
         </div>
-        <div className="col-sm-9">
+        <div className="col-sm-9 text-right">
           {this.renderQuestion()}
           <div className="row">
             {this.Column("Prev", this.state.id - 1)}
