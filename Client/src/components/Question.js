@@ -98,7 +98,7 @@ class Question extends React.Component {
         this.color = "#f01f53";
 
       return (
-        <Link to="" className="col-2" key={question.id}>
+        <Link to="" className="col-3" key={question.id}>
           <div
             onClick={() => this.onClick(question.id)}
             style={{
