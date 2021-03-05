@@ -41,7 +41,6 @@ class Users extends React.Component {
 }
 
 const mapStateToProps= (state)=>{
-    console.log(Object.values(state.users));
     return { 
         users: Object.values(state.users),
     };

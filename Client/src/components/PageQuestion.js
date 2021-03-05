@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ModalQuestion from './ModalQuestion';
+import ModalQuestion from './Modal';
 import { fetchQuestions, deleteQuestion } from '../actions';
 import { Link } from "react-router-dom";
 
@@ -28,20 +28,20 @@ class PageQuestion extends React.Component {
        return this.props.questions.map( (ques) =>{
             return (
                 <div className="item" key={ques._id}>
-                    <i className="large middle aligned icon camera" />
                     <div className="content row">
                         <div className="col-4">
                             {ques.q1}
                         </div>
                         <div className="col-4">
-                            <Link to={`/admin/update/${ques.id}`}>
+                            <Link to={`/admin/update/${ques._id}`}>
                                 Edit
                             </Link>
                         </div>
                         <div className="col-4">
-                            <ModalQuestion value={ques.id} op="Delete" title="Delete Question" body={this.renderContent()} action={this.renderActions(ques.id)} />
+                            <ModalQuestion value={ques._id} op="Delete" title="Delete Question" body={this.renderContent()} action={this.renderActions(ques._id)} />
                         </div>
                     </div>
+                    <hr/>
                 </div>
             )
         });
@@ -50,6 +50,8 @@ class PageQuestion extends React.Component {
     render() {
         return (
             <div>
+                <hr/>
+                <br/><br/>
                 {this.renderList()}
             </div>
         );

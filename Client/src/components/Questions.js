@@ -5,11 +5,14 @@ import { fetchQuestions } from '../actions';
 import { usersDetail } from '../actions';
 import Question from './Question';
 import Timer from './Timer';
+import Card from './Card';
+import ModalUI from './ModalUI';
+import Alert from './Alert';
 
 class Questions extends React.Component {
     constructor(props){
         super(props);
-        this.state= {flag:0,count:0,check:true};
+        this.state= {flag:0,count:0,check:true,screenWidth:window.innerWidth};
     }
 
     componentDidMount(){
@@ -18,14 +21,15 @@ class Questions extends React.Component {
 
     onSubmit= async (formValues) => {
         let c=0;
-        await this.props.questions.map((question)=> {
-            if(formValues[`ans${question.id}`]===question.ans)
+        await Object.values(this.props.questions).map((question)=> {
+            if(formValues[`ans${question._id}`]===question.ans)
                 c++;
         });
         console.log(formValues);
         this.setState({count:c});
         this.props.usersDetail(this.props.username, this.props.email, this.state.count);
         this.setState({flag:1})
+        document.getElementById('alert').click();
     }
 
     username= ()=> {
@@ -47,27 +51,55 @@ class Questions extends React.Component {
         else
             return (
                 <div className="question-submit">
-                    <button id="sub" className="ui btn btn-danger btn-lg">Click here after completeing the Quiz</button>
+                    <ModalUI onSubmit={this.props.handleSubmit(this.onSubmit)}/>
+                    <button id='sub' type="submit" style={{visibility:'hidden'}}/>
                 </div>
             );      
     }
 
     render() {
-        if(!this.props.validating && this.state.flag===0)
-            document.getElementById("sub").click();
+        if(!this.props.questions)
+            return <>Loading...</>;
 
+        if(!this.props.validating && this.state.flag===0)
+            document.getElementById('sub').click();
+
+        window.addEventListener("resize", ()=>this.setState({screenWidth:window.innerWidth}));
         
+        var x=1;
         
         return (
             <div>
                 <h1 className="Quiz-title text-center">CESTA <br /> RAPID-FIRE <br /> QUIZ</h1>
                 <div className="ui celled list">
+                    <hr />
                     <div className="text-right">
                         <Timer startCount="1500" />
                     </div>
+                    <Alert />
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                         <h4 className="userName">USER :-   {this.username()}</h4>
-                        <Question />
+                        <hr size="10"/>
+                        { this.props.isSignedIn && (
+                            <div className="row">
+                                <div className="col-sm-3" style={ this.state.screenWidth>550?{height: '250px',overflowY: 'scroll' }:{}}>
+                                    <div className="row"> 
+                                    {
+                                        Object.values(this.props.questions).map((item)=>{
+                                            return (
+                                                <div className="col-3">
+                                                    <Card sno={x++} question={item}/>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                    </div>
+                                </div>
+                                <div className="col-sm-9">
+                                    <Question sno={this.props.selectedId.sno} question={this.props.questions[this.props.selectedId.id]}/>
+                                </div>
+                            </div>
+                        )}
                         {this.result()}
                     </form>
                 </div>
@@ -86,13 +118,13 @@ const validate= (formValues) => {
 }
 
 const mapStateToProps= (state)=>{
-    console.log("fs="+state.auth.email);
     return { 
-        questions: Object.values(state.questions),
+        questions: state.questions,
         username:  state.auth.username,
         email: state.auth.email,
         isSignedIn: state.auth.isSignedIn,
-        validating: state.time.valid
+        validating: state.time.valid,
+        selectedId: state.selectedId
     };
 };
 

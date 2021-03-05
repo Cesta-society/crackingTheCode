@@ -21,7 +21,6 @@ class QuestionForm extends React.Component {
 
 
     renderInput= (props)=>{
-       // console.log(props);
         const className= `field ${props.meta.error && props.meta.touched?'error':''} `;
         if(props.type!=='radio')
             return (
@@ -62,7 +61,6 @@ class QuestionForm extends React.Component {
 }
 
 const validate= (formValues) => {
-    console.log(formValues);
     const errors= {};
     if(!formValues.q1)
         errors.q1= 'You must enter a Question';

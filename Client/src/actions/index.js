@@ -1,6 +1,6 @@
 import axios from '../axios';
 import history from '../history';
-import { SIGN_IN, SIGN_OUT, ADD_QUESTION, UPDATE_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS, TIME_VALID, TIME_INVALID} from './types'
+import { SIGN_IN, SIGN_OUT, ADD_QUESTION, UPDATE_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS, TIME_VALID, TIME_INVALID, SELECTED_ID, FULL_SCREEN} from './types'
 
 export const signIn = (user)=>{
     return {
@@ -24,6 +24,24 @@ export const timing_valid = ()=>{
 export const timing_invalid = ()=>{
     return {
         type: TIME_INVALID
+    }
+};
+
+export const selectId = (id,sno)=>{
+    return {
+        type: SELECTED_ID,
+        payload: {
+            id,
+            sno
+        }
+    }
+};
+
+export const setFullScreen = (flag)=>{
+    console.log(flag);
+    return {
+        type: FULL_SCREEN,
+        payload: flag
     }
 };
 

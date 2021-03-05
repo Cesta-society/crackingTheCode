@@ -14,7 +14,6 @@ class UpdateQuestion extends React.Component {
     };
 
     render(){
-        console.log(this.props.question);
         if(!this.props.question)
             return <div>Loading...</div>
         return (

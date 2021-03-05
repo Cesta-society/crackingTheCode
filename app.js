@@ -27,19 +27,18 @@ require('./prod.js')(app);
 
 app.set("view engine", "pug");
 
-app.use(express.static(path.join(__dirname, 'Client/build')));
-
-
 if(process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'Client/build')));
+  app.use(express.static(path.join(__dirname, '../Client/build')));
   app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname ,'Client','build','index.html'));
+    res.sendFile(path.join(__dirname ,'.','Client','build','index.html'));
   }); 
 }
-else
+else{
+  app.use(express.static(path.join(__dirname, '../Client/public')));
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/Client/public/index.html'));
+      res.sendFile(path.join(__dirname+'/./Client/public/index.html'));
   });
+}
 
 
 const port=process.env.PORT || 8080;

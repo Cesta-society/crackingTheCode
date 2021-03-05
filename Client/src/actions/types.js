@@ -9,3 +9,5 @@ export const USERS_DETAIL= 'USER_DETAIL';
 export const FETCH_USERS= 'FETCH_USERS';
 export const TIME_VALID= 'TIME_VALID';
 export const TIME_INVALID= 'TIME_INVALID';
+export const SELECTED_ID= 'SELECTED_ID';
+export const FULL_SCREEN= 'FULL_SCREEN';

@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { addQuestion } from '../actions';
 import QuestionForm from './QuestionForm'
 
-
 class AddQuestion extends React.Component {
-
+  
     onSubmit= (formValues) => {
         console.log(formValues);
         this.props.addQuestion(formValues);
-    }        
+    }      
 
     render() {
         return (

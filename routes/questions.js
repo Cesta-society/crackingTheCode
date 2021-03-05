@@ -29,7 +29,7 @@ router.put('/:id',async (req,res)=>{
 
 router.delete('/:id', async (req,res)=>{
     
-    const remove=await Question.deleteOne({id:req.params.id});
+    const remove=await Question.deleteOne({_id:req.params.id});
     if(!remove)
         return res.status(404).send({link:"/",message:"Given ID was not found"});//404 is error not found
     

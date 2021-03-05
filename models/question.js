@@ -1,5 +1,4 @@
 const mongoose =require('mongoose'); 
-const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const QuestionSchema=new mongoose.Schema({
     q1:{
@@ -27,8 +26,6 @@ const QuestionSchema=new mongoose.Schema({
         required: true
     }
 });
-
-QuestionSchema.plugin(AutoIncrement, {inc_field: 'id'});
 
 const Question= mongoose.model('questions', QuestionSchema);
 

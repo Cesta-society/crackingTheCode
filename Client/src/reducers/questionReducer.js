@@ -4,13 +4,13 @@ import {UPDATE_QUESTION, ADD_QUESTION, DELETE_QUESTION, FETCH_QUESTIONS, FETCH_Q
 export default (state={}, action)=>{
     switch (action.type) {
         case FETCH_QUESTIONS:
-            return {...state, ..._.mapKeys(action.payload,'id')};
+            return {...state, ..._.mapKeys(action.payload,'_id')};
         case FETCH_QUESTION:
-            return { ...state, [action.payload.id]: action.payload };
+            return { ...state, [action.payload._id]: action.payload };
         case ADD_QUESTION:
-            return { ...state, [action.payload.id]: action.payload };
+            return { ...state, [action.payload._id]: action.payload };
         case UPDATE_QUESTION:
-            return { ...state, [action.payload.id]: action.payload };
+            return { ...state, [action.payload._id]: action.payload };
         case DELETE_QUESTION:
             return _.omit(state, action.payload);
         default:
