@@ -93,36 +93,34 @@ class Questions extends React.Component {
                         <h4 className="userName">USER :-   {this.username()}</h4>
                         <hr size="10"/>
                         { this.props.isSignedIn && (
-                            <div className="row">
-                                <div className="col-sm-3" style={ this.state.screenWidth>550?{height: '250px',overflowY: 'scroll' }:{}}>
-                                    <div className="row"> 
+                            <Grid container spacing={3}>
+                                <Grid item sm={3} xs={3} style={{height: '35vh',overflowY: 'scroll' }}>
+                                    <Grid container spacing={2}> 
                                     {
                                         Object.values(this.props.questions).map((item)=>{
                                             return (
-                                                <div className="col-3">
+                                                <Grid item>
                                                     <Card sno={x++} question={item}/>
-                                                </div>
+                                                </Grid>
                                             )
                                         })
                                     }
-                                    </div>
-                                </div>
-                                <div className="col-sm-9">
-                                    <Grid container spacing={3}>
+                                    </Grid>
+                                </Grid>
+                                <Grid item sm={9} xs={9} >
+                                    <Grid container spacing={1}>
                                         <Grid item xs={1} style={{marginTop:'15vh'}}>
-                                            <ArrowBackIosRoundedIcon onClick={()=>this.onClick(this.props.selectedId.sno==1?this.props.selectedId.sno:this.props.selectedId.sno-1)}/>
+                                            <ArrowBackIosRoundedIcon fontSize="large" color={this.props.selectedId.sno==1?'disabled':''} onClick={()=>this.props.selectedId.sno==1?null:this.onClick(this.props.selectedId.sno-1)}/>
                                         </Grid>
                                         <Grid item xs={10} >
                                             <Question sno={this.props.selectedId.sno} question={this.props.questions[this.props.selectedId.id]}/>
                                         </Grid>
                                         <Grid item xs={1} style={{marginTop:'15vh'}}>
-                                            <ArrowForwardIosRoundedIcon onClick={()=>this.onClick(this.props.selectedId.sno==6?this.props.selectedId.sno:this.props.selectedId.sno+1)}/>
+                                            <ArrowForwardIosRoundedIcon fontSize="large" color={this.props.selectedId.sno==6?'disabled':''} onClick={()=>this.props.selectedId.sno==6?null:this.onClick(this.props.selectedId.sno+1)}/>
                                         </Grid>
-                                    </Grid>
-                                    
-                                    
-                                </div>
-                            </div>
+                                    </Grid> 
+                                </Grid>
+                            </Grid>
                         )}
                         {this.result()}
                     </form>
