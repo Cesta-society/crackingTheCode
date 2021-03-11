@@ -1,6 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
+import Grid from '@material-ui/core/Grid';
+
+import { selectId } from "../actions";
 import { fetchQuestions } from '../actions';
 import { usersDetail } from '../actions';
 import Question from './Question';
@@ -8,6 +13,7 @@ import Timer from './Timer';
 import Card from './Card';
 import ModalUI from './ModalUI';
 import Alert from './Alert';
+
 
 class Questions extends React.Component {
     constructor(props){
@@ -57,6 +63,12 @@ class Questions extends React.Component {
             );      
     }
 
+    onClick=(index)=>{
+        this.props.selectId(Object.values(this.props.questions)[index-1]._id,index);
+        console.log(`Clicked on ${Object.values(this.props.questions)[index-1]._id}`);
+        console.log(Object.values(this.props.questions)[index-1]._id);
+    }
+
     render() {
         if(!this.props.questions)
             return <>Loading...</>;
@@ -96,7 +108,19 @@ class Questions extends React.Component {
                                     </div>
                                 </div>
                                 <div className="col-sm-9">
-                                    <Question sno={this.props.selectedId.sno} question={this.props.questions[this.props.selectedId.id]}/>
+                                    <Grid container spacing={3}>
+                                        <Grid item xs={1} style={{marginTop:'15vh'}}>
+                                            <ArrowBackIosRoundedIcon onClick={()=>this.onClick(this.props.selectedId.sno==1?this.props.selectedId.sno:this.props.selectedId.sno-1)}/>
+                                        </Grid>
+                                        <Grid item xs={10} >
+                                            <Question sno={this.props.selectedId.sno} question={this.props.questions[this.props.selectedId.id]}/>
+                                        </Grid>
+                                        <Grid item xs={1} style={{marginTop:'15vh'}}>
+                                            <ArrowForwardIosRoundedIcon onClick={()=>this.onClick(this.props.selectedId.sno==6?this.props.selectedId.sno:this.props.selectedId.sno+1)}/>
+                                        </Grid>
+                                    </Grid>
+                                    
+                                    
                                 </div>
                             </div>
                         )}
@@ -124,7 +148,7 @@ const mapStateToProps= (state)=>{
         email: state.auth.email,
         isSignedIn: state.auth.isSignedIn,
         validating: state.time.valid,
-        selectedId: state.selectedId
+        selectedId: state.selectedId,
     };
 };
 
@@ -133,4 +157,4 @@ const Form= reduxForm({
     validate: validate
 })(Questions);
 
-export default connect(mapStateToProps,{fetchQuestions, usersDetail})(Form);
+export default connect(mapStateToProps,{fetchQuestions, usersDetail,selectId})(Form);

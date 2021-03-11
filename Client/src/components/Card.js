@@ -15,20 +15,18 @@ class Card extends React.Component {
   }
 
   onClick=(e)=>{
-      this.props.selectId(this.props.question._id,(this.props.sno).toString());
+      this.props.selectId(this.props.question._id,this.props.sno);
       console.log(`Clicked on ${this.props.question._id}`);
   }
 
   render(){
 
     return (
-        <div onClick={this.onClick} style={{width: '40px',height: '30px', backgroundColor: this.props.question._id==this.props.selectedId.id?'green':'white',border: '1px solid gray',borderRadius:'7px'}}>
+        <div onClick={this.onClick} style={{width: '40px',height: '30px', backgroundColor: this.props.question._id==this.props.selectedId.id?'green':'white',border: '1px solid gray',borderRadius:'7px',marginBottom:'1vh'}}>
             <h6 style={{cursor:'pointer',paddingTop:'5px',paddingLeft:'10px',color: this.props.question._id==this.props.selectedId.id?'white':'black'}}>
                 {this.props.sno}
             </h6>
-            
         </div>
-    
     )
   }
 }
