@@ -9,7 +9,7 @@
 .Quiz-title {
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #d0ff00;
+  color: #3449eb;
   font-family: "Monoton";
   font-style: normal;
   font-weight: 500;
@@ -18,7 +18,8 @@
 
 .timer {
   font-size: 1.6rem;
-  color: red;
+  color: green;
+  font-family: 'Crimson Text', serif;
 }
 
 .Login {
@@ -26,10 +27,11 @@
 }
 
 .userName {
-  color: rgb(75, 8, 184);
+  color: green;
   padding-top: 15px;
   padding-bottom: 10px;
   font-size: 1.5rem;
+  font-family: 'Crimson Text', serif;
 }
 
 .content {
@@ -37,7 +39,7 @@
 }
 
 .main-question {
-  font-family:  'Quicksand';
+  font-family: 'Crimson Text', serif;
   font-size: 2rem;
 }
 

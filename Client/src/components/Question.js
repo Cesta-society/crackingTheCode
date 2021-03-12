@@ -38,7 +38,7 @@ class Question extends React.Component {
         {/* <i className="large middle aligned icon question" /> */}
         <div className="content">
           <div id="question">
-            <h4 className="main-question">
+            <h4 className="main-question" >
               Q{this.props.sno}.  {this.props.question.q1} 
             </h4>
             <br />

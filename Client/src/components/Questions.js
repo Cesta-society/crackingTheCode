@@ -82,7 +82,7 @@ class Questions extends React.Component {
         
         return (
             <div>
-                <h1 className="Quiz-title text-center">CESTA <br /> RAPID-FIRE <br /> QUIZ</h1>
+                <h1 className="Quiz-title text-center">CESTA <br /> WARM-UP <br /> QUIZ</h1>
                 <div className="ui celled list">
                     <hr />
                     <div className="text-right">
@@ -116,7 +116,7 @@ class Questions extends React.Component {
                                             <Question sno={this.props.selectedId.sno} question={this.props.questions[this.props.selectedId.id]}/>
                                         </Grid>
                                         <Grid item xs={1} style={{marginTop:'15vh'}}>
-                                            <ArrowForwardIosRoundedIcon fontSize="large" color={this.props.selectedId.sno==6?'disabled':''} onClick={()=>this.props.selectedId.sno==6?null:this.onClick(this.props.selectedId.sno+1)}/>
+                                            <ArrowForwardIosRoundedIcon fontSize="large" color={this.props.selectedId.sno==Object.values(this.props.questions).length?'disabled':''} onClick={()=>this.props.selectedId.sno==6?null:this.onClick(this.props.selectedId.sno+1)}/>
                                         </Grid>
                                     </Grid> 
                                 </Grid>
