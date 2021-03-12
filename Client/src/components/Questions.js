@@ -116,7 +116,7 @@ class Questions extends React.Component {
                                             <Question sno={this.props.selectedId.sno} question={this.props.questions[this.props.selectedId.id]}/>
                                         </Grid>
                                         <Grid item xs={1} style={{marginTop:'15vh'}}>
-                                            <ArrowForwardIosRoundedIcon fontSize="large" color={this.props.selectedId.sno==Object.values(this.props.questions).length?'disabled':''} onClick={()=>this.props.selectedId.sno==6?null:this.onClick(this.props.selectedId.sno+1)}/>
+                                            <ArrowForwardIosRoundedIcon fontSize="large" color={this.props.selectedId.sno==Object.values(this.props.questions).length?'disabled':''} onClick={()=>this.props.selectedId.sno==Object.values(this.props.questions).length?null:this.onClick(this.props.selectedId.sno+1)}/>
                                         </Grid>
                                     </Grid> 
                                 </Grid>
