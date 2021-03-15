@@ -52,6 +52,11 @@ class PageQuestion extends React.Component {
             <div>
                 <hr/>
                 <br/><br/>
+                <div className="text-right">
+                    <button className="btn btn-primary" onClick={()=>window.location.replace('/admin/add')}>Add Question</button>
+                </div>
+                <hr/>
+                <br/><br/>
                 {this.renderList()}
             </div>
         );
