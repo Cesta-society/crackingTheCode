@@ -13,12 +13,13 @@ class PageQuestion extends React.Component {
     }
 
     renderList(){
-       return this.props.questions.map( (ques) =>{
+        var x=1;
+        return this.props.questions.map( (ques) =>{
             return (
                 <>
                     <div className="row">
                         <div className="col-4">
-                            {ques.q1}
+                          {x++}.{ques.q1}
                         </div>
                         <div className="col-4">
                             <Link to={`/admin/update/${ques._id}`}>
