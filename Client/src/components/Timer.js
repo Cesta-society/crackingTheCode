@@ -24,16 +24,28 @@ class Timer extends React.Component {
     }
 
     convert= ()=>{
-        var hr= parseInt(this.state.count/60)
-        var min= parseInt(this.state.count%60)
-        console.log(hr-1);
-        console.log(min);
+        var hr= parseInt(this.state.count/60);
+        var min= parseInt(this.state.count%60);
     }
 
     render(){
         this.renderinfo();
+        var time= this.state.count;
         var min= parseInt(this.state.count/60);
         var sec= this.state.count%60;
+
+        window.onbeforeunload = (event)=>{
+            if(!localStorage.getItem('x-submit-token'))
+                localStorage.setItem('x-time-token',time);
+        }
+
+        if(localStorage.getItem('x-submit-token'))
+            return (
+                <div>
+                    <h4 className="timer">Time Left: --:--</h4>
+                </div>
+            );
+
         return (
             <div>
                 <h4 className="timer">Time Left: {min<10?`0${min}`:min} : {sec<10?`0${sec}`:sec}</h4>
@@ -52,7 +64,7 @@ class Timer extends React.Component {
 
     doIntervalChange(){
         this.myInterval= setInterval(()=>{
-            if(this.props.isSignedIn)
+            if(this.props.isSignedIn && !localStorage.getItem('x-submit-token'))
                 this.setState( prevState => ({
                     count: prevState.count-1
                 }));

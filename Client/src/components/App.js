@@ -26,6 +26,9 @@ class App extends React.Component{
 
     componentDidMount(){
         this.props.fetchQuestions();
+        console.log(localStorage.getItem('x-time-token'));
+        if(!localStorage.getItem('x-time-token') || !localStorage.getItem('x-time-token')==NaN  || localStorage.getItem('x-submit-token'))
+            localStorage.setItem('x-time-token',1500);
     }
 
     render(){

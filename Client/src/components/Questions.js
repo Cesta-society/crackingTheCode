@@ -36,6 +36,8 @@ class Questions extends React.Component {
         this.props.usersDetail(this.props.username, this.props.email, this.state.count);
         this.setState({flag:1})
         document.getElementById('alert').click();
+        localStorage.setItem('x-submit-token', '100002123#12231#123');
+        localStorage.removeItem("x-time-token");
     }
 
     username= ()=> {
@@ -48,10 +50,10 @@ class Questions extends React.Component {
     result = ()=> {
         if(!this.props.isSignedIn)
             return <></>;
-        if(this.state.flag===1)
+        if(localStorage.getItem('x-submit-token'))
             return (
                 <div className="question-submit">
-                    <h5 className="main-question">You score {this.state.count} points.</h5>
+                    <h5 className="main-question">You submitted your quiz.</h5>
                 </div>
             );
         else
@@ -79,6 +81,8 @@ class Questions extends React.Component {
         window.addEventListener("resize", ()=>this.setState({screenWidth:window.innerWidth}));
         
         var x=1;
+
+        console.log();
         
         return (
             <div>
@@ -86,7 +90,7 @@ class Questions extends React.Component {
                 <div className="ui celled list">
                     <hr />
                     <div className="text-right">
-                        <Timer startCount="1500" />
+                        <Timer startCount={localStorage.getItem('x-time-token')}/>
                     </div>
                     <Alert />
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
