@@ -67,7 +67,7 @@ export const deleteQuestion= (id)=> async (dispatch)=> {
     console.log(id);
     await axios.delete(`/quiz/${id}`);
     dispatch({type: DELETE_QUESTION, payload: id});
-    window.location.replace('/');
+    window.location.replace('/admin/page');
     alert('A question has been deleted');
 }
 

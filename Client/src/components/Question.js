@@ -39,7 +39,8 @@ class Question extends React.Component {
         <div className="content">
           <div id="question">
             <h4 className="main-question" >
-              Q{this.props.sno}.  {this.props.question.q1} 
+              {console.log(this.props.question.q1)}
+             <pre style={{whiteSpace: "pre-wrap"}}>Q{this.props.sno}.  {this.props.question.q1}</pre>
             </h4>
             <br />
           </div>

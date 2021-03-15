@@ -26,7 +26,11 @@ class QuestionForm extends React.Component {
             return (
                 <div className={className}>
                     {props.label}
-                    <input style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>
+                    {
+                        props.label=="Add Question"?
+                        <textarea style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>:
+                        <input style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>
+                    }
                     {this.renderError(props.meta)}
                 </div>
             );
