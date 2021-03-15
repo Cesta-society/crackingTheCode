@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ModalQuestion from './Modal';
 import { fetchQuestions, deleteQuestion } from '../actions';
 import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 class PageQuestion extends React.Component {
 
@@ -11,24 +12,11 @@ class PageQuestion extends React.Component {
         console.log(this.props.params);
     }
 
-    renderActions(id){
-        return (
-            <React.Fragment>
-                <button onClick={()=> this.props.deleteQuestion(id)} className="ui button negative">Delete</button>
-                <button type="button" className="btn btn-primary"  data-dismiss="modal">Cancel</button>
-            </React.Fragment>
-        );
-    }
-
-    renderContent() {
-        return `Are you want to delete the stream`;
-    }
-
     renderList(){
        return this.props.questions.map( (ques) =>{
             return (
-                <div className="item" key={ques._id}>
-                    <div className="content row">
+                <>
+                    <div className="row">
                         <div className="col-4">
                             {ques.q1}
                         </div>
@@ -38,11 +26,11 @@ class PageQuestion extends React.Component {
                             </Link>
                         </div>
                         <div className="col-4">
-                            <ModalQuestion value={ques._id} op="Delete" title="Delete Question" body={this.renderContent()} action={this.renderActions(ques._id)} />
+                            <ModalQuestion id={ques._id} op="Delete" title="Delete Question" />
                         </div>
                     </div>
                     <hr/>
-                </div>
+                </>
             )
         });
     }
@@ -57,7 +45,9 @@ class PageQuestion extends React.Component {
                 </div>
                 <hr/>
                 <br/><br/>
-                {this.renderList()}
+                <div style={{overflowY:'scrollx', height: '300vh'}}>
+                    {this.renderList()}
+                </div>
             </div>
         );
     }

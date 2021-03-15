@@ -44,10 +44,9 @@ class App extends React.Component{
                         <Switch>
                             <Route path="/" exact={true} component= {Questions} />
                             <Route path="/admin/add" exact={true} component= {AddQuestion} />
-                            <Route path="/admin/page" exact={true} component= {PageQuestion} />
+                            <Route path="/admin/page" component= {PageQuestion} />
                             <Route path="/admin/update/:id" exact={true} component= {UpdateQuestion} />
                             <Route path="/admin/results" exact={true} component= {Results} />
-                            <Route path="/admin/modal" exact={true} component= {Modal} />
                         </Switch>
                     </div>
                 </Router>
