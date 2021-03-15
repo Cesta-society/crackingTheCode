@@ -27,10 +27,8 @@ class App extends React.Component{
     componentDidMount(){
         this.props.fetchQuestions();
         console.log(localStorage.getItem('x-time-token'));
-        if(!localStorage.getItem('x-time-token')){
+        if(!localStorage.getItem('x-time-token'))
             localStorage.setItem('x-time-token',1500);
-            window.location.replace('/');
-        }
     }
 
     render(){
