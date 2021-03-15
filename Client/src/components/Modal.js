@@ -33,7 +33,7 @@ const ModalQuestion= (props)=>{
   const body = (
 
     <div style={{width: window.innerWidth>550?'80vw':'98vw',marginTop:'30vh',marginLeft:window.innerWidth>550?'10vw':'1vw'}} className={classes.paper}>
-        <h2 id="simple-modal-title">Submit</h2>
+        <h2 id="simple-modal-title">Delete Question</h2>
         <hr />
         <p id="simple-modal-description">
             Are you sure you want to delete the question?

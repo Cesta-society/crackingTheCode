@@ -46,9 +46,7 @@ class PageQuestion extends React.Component {
                 </div>
                 <hr/>
                 <br/><br/>
-                <div style={{overflowY:'scrollx', height: '300vh'}}>
-                    {this.renderList()}
-                </div>
+                {this.renderList()}
             </div>
         );
     }
