@@ -13,7 +13,7 @@ class Question extends React.Component {
     this.props.fetchQuestions();
   }
 
-  renderInput = (props) => {
+  renderInput = (props)=> {
     return (
       <div className="field">
         <input
