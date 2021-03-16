@@ -1,0 +1,14 @@
+{
+  "crackingTheCode": [
+    {
+      "q1": "Statement 1: ABCD\nStatement 2: ABCD\nStatement 3: ABCD\nStatement 4: ABCD",
+      "o1": "a",
+      "o2": "b",
+      "o3": "c",
+      "o4": "d",
+      "ans": "B",
+      "id": 1,
+      "_id": 1
+    }
+  ]
+}

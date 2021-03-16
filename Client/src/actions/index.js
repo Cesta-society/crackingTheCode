@@ -46,7 +46,7 @@ export const setFullScreen = (flag)=>{
 };
 
 export const addQuestion= (formValues)=> async (dispatch)=>{
-    const response = await axios.post('/quiz', {...formValues} );
+    const response = await axios.post('/crackingTheCode', {...formValues} );
     console.log(response.data);
     dispatch({type: ADD_QUESTION, payload: response.data});
     window.location.replace('/admin/add');
@@ -54,25 +54,25 @@ export const addQuestion= (formValues)=> async (dispatch)=>{
 };
 
 export const fetchQuestions= () => async (dispatch) => {
-    const response= await axios.get('/quiz');
+    const response= await axios.get('/crackingTheCode');
     dispatch({type: FETCH_QUESTIONS, payload: response.data});
 };
 
 export const fetchQuestion= (id) => async (dispatch) => {
-    const response = await axios.get(`/quiz/${id}`);
+    const response = await axios.get(`/crackingTheCode/${id}`);
     dispatch({ type: FETCH_QUESTION, payload:response.data});
 };
 
 export const deleteQuestion= (id)=> async (dispatch)=> {
     console.log(id);
-    await axios.delete(`/quiz/${id}`);
+    await axios.delete(`/crackingTheCode/${id}`);
     dispatch({type: DELETE_QUESTION, payload: id});
     alert('A question has been deleted');
 }
 
 export const updateQuestion= (id, formValues)=> async (dispatch)=> {
     console.log("Edit="+formValues)
-    const response=  await axios.put(`/quiz/${id}`, formValues);
+    const response=  await axios.patch(`/crackingTheCode/${id}`, formValues);
     dispatch({ type: UPDATE_QUESTION, payload: response})
     window.location.replace('/');
     alert('A question has been updated');

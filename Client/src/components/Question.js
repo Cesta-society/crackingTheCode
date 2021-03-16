@@ -48,34 +48,8 @@ class Question extends React.Component {
               <Field
                 name={name}
                 component={this.renderInput}
-                type="radio"
-                value="A"
+                type="text"
                 width="5vw"
-                option={this.props.question.o1}
-              />
-              <Field
-                name={name}
-                component={this.renderInput}
-                type="radio"
-                value="B"
-                width="5vw"
-                option={this.props.question.o2}
-              />
-              <Field
-                name={name}
-                component={this.renderInput}
-                type="radio"
-                value="C"
-                width="5vw"
-                option={this.props.question.o3}
-              />
-              <Field
-                name={name}
-                component={this.renderInput}
-                type="radio"
-                value="D"
-                width="5vw"
-                option={this.props.question.o4}
               />
             </b>
             <br />
