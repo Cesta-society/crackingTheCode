@@ -28,7 +28,7 @@ class Questions extends React.Component {
     onSubmit= async (formValues) => {
         let c=0;
         await Object.values(this.props.questions).map((question)=> {
-            if(formValues[`ans${question._id}`]===question.ans)
+            if(formValues[`ans${question._id}`]===question.ans.toLowerCase())
                 c++;
         });
         console.log(formValues);
