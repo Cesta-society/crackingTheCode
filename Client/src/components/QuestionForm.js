@@ -49,14 +49,11 @@ class QuestionForm extends React.Component {
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                 <div>
                     <Field name="q1" component={this.renderInput} label="Add Question" type="text" width='50vw'/>
-                    <Field name="o1" component={this.renderInput} label="Option1" type="text" width='50vw'/>
-                    <Field name="ans" component={this.renderInput} type="radio" value="A" width='5vw'/>
-                    <Field name="o2" component={this.renderInput} label="Option2" type="text" width='50vw'/>
-                    <Field name="ans" component={this.renderInput} type="radio" value="B" width='5vw'/>
-                    <Field name="o3" component={this.renderInput} label="Option3" type="text" width='50vw'/>
-                    <Field name="ans" component={this.renderInput} type="radio" value="C" width='5vw'/>
-                    <Field name="o4" component={this.renderInput} label="Option4" type="text" width='50vw'/>
-                    <Field name="ans" component={this.renderInput} type="radio" value="D" width='5vw'/>
+                    <Field name="o1" component={this.renderInput} label="Statement 1:" type="text" width='50vw'/>
+                    <Field name="o2" component={this.renderInput} label="Statement 2: " type="text" width='50vw'/>
+                    <Field name="o3" component={this.renderInput} label="Statement 3: " type="text" width='50vw'/>
+                    <Field name="o4" component={this.renderInput} label="Statement 4: " type="text" width='50vw'/>
+                    <Field name="ans" component={this.renderInput} label="Answer: " type="text" value="D" width='5vw'/>
                     <button className="ui button primary">Submit</button>
                 </div>
             </form>
