@@ -22,15 +22,12 @@ class Question extends React.Component {
           type={props.type}
           autoComplete="off"
         />
-        <a className="option">{props.option}</a>
-        <br />
       </div>
     );
   };
 
   renderQuestion = () => {
-    if (!this.props.question) 
-      return <div>Loading...</div>;
+    if (!this.props.questions) return <div>Loading...</div>;
 
     let name = "ans" + this.props.question._id;
     return (
@@ -38,10 +35,16 @@ class Question extends React.Component {
         {/* <i className="large middle aligned icon question" /> */}
         <div className="content">
           <div id="question">
-            <h4 className="main-question" >
-              <pre style={{whiteSpace: "pre-wrap"}}>Q{this.props.sno}.  {this.props.question.q1}</pre>
+            <h4 className="main-question">
+              <pre style={{ whiteSpace: "pre-wrap" }}>
+                Q{this.props.sno}. {this.props.question.q1}
+              </pre>
             </h4>
             <br />
+            {this.props.question.o1 && <p>{this.props.question.o1}</p>}
+            {this.props.question.o2 && <p>{this.props.question.o2}</p>}
+            {this.props.question.o3 && <p>{this.props.question.o3}</p>}
+            {this.props.question.o4 && <p>{this.props.question.o4}</p>}
           </div>
           <div>
             <b>
@@ -59,12 +62,12 @@ class Question extends React.Component {
     );
   };
 
- 
+
 
   render() {
-    if(!this.props.isSignedIn)
+    if (!this.props.isSignedIn)
       return <></>;
-      
+
     return (
       <>
         <div className="col-sm-9">
