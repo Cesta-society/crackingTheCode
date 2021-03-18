@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/quiz', questions);
+app.use('/crackingTheCode', questions);
 app.use('/user', users);
 
 require('./prod.js')(app);

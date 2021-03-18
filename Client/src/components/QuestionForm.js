@@ -25,7 +25,7 @@ class QuestionForm extends React.Component {
         if(props.type!=='radio')
             return (
                 <div className={className}>
-                    {props.label}
+                    {props.label}<br/>
                     {
                         props.label=="Add Question"?
                         <textarea style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>:
@@ -49,11 +49,7 @@ class QuestionForm extends React.Component {
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                 <div>
                     <Field name="q1" component={this.renderInput} label="Add Question" type="text" width='50vw'/>
-                    <Field name="o1" component={this.renderInput} label="Statement 1:" type="text" width='50vw'/>
-                    <Field name="o2" component={this.renderInput} label="Statement 2: " type="text" width='50vw'/>
-                    <Field name="o3" component={this.renderInput} label="Statement 3: " type="text" width='50vw'/>
-                    <Field name="o4" component={this.renderInput} label="Statement 4: " type="text" width='50vw'/>
-                    <Field name="ans" component={this.renderInput} label="Answer: " type="text" value="D" width='5vw'/>
+                    <Field name="ans" component={this.renderInput} label="Answer: " type="text" width='50vw'/>
                     <button className="ui button primary">Submit</button>
                 </div>
             </form>

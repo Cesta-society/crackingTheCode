@@ -15,22 +15,26 @@ class Users extends React.Component {
         var c=0;
         
         return (
-            <table style={{width:"100%"}}>
+            <table style={{width:"100%",overflowX:'scroll'}}>
                 <tr>
                     <th>S.No</th>
                     <th>Email</th>
                     <th>Name</th>
                     <th>Points</th>
+                    <th>Time</th>
                 </tr>
                 {this.props.users
                     .sort((a, b) => Number(a.points) > Number(b.points) ? -1 : 1)
                     .map( (user) =>{
+                        var min= parseInt(user.time/60);
+                        var sec= user.time%60;
                         return (
                         <tr>
                             <td>{++c}</td>
                             <td>{user.email}</td>
                             <td>{user.user}</td>
                             <td>{user.points}</td>
+                            <td>{min<10?`0${min}`:min} : {sec<10?`0${sec}`:sec}</td>
                         </tr>
                         );
                     })
