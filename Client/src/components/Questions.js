@@ -86,7 +86,7 @@ class Questions extends React.Component {
         
         return (
             <div>
-                <h1 className="Quiz-title text-center">CESTA <br /> WARM-UP <br /> QUIZ</h1>
+                <h1 className="Quiz-title text-center">CESTA <br /> CRACKING THE CODE</h1>
                 <div className="ui celled list">
                     <hr />
                     <div className="text-right">

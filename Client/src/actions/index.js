@@ -74,7 +74,7 @@ export const deleteQuestion= (id)=> async (dispatch)=> {
 
 export const updateQuestion= (id, formValues)=> async (dispatch)=> {
     console.log("Edit="+formValues)
-    const response=  await axios.put(`/crackingTheCode/${id}`, formValues);
+    const response=  await axios.patch(`/crackingTheCode/${id}`, formValues);
     dispatch({ type: UPDATE_QUESTION, payload: response})
     window.location.replace('/');
     alert('A question has been updated');
