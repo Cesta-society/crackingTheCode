@@ -27,7 +27,7 @@ class QuestionForm extends React.Component {
                 <div className={className}>
                     {props.label}<br/>
                     {
-                        props.label=="Add Question"?
+                        props.label=="Question"?
                         <textarea style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>:
                         <input style={{width:`${props.width}`}} {...props.input} type={props.type} autoComplete="off"/>
                     }
@@ -48,7 +48,7 @@ class QuestionForm extends React.Component {
         return (
             <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
                 <div>
-                    <Field name="q1" component={this.renderInput} label="Add Question" type="text" width='50vw'/>
+                    <Field name="q1" component={this.renderInput} label="Question" type="text" width='50vw'/>
                     <Field name="ans" component={this.renderInput} label="Answer: " type="text" width='50vw'/>
                     <button className="ui button primary">Submit</button>
                 </div>
