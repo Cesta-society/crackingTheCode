@@ -15,15 +15,17 @@ export const signOut = ()=>{
     }
 };
 
-export const timing_valid = ()=>{
+export const timing_valid = (value)=>{
     return {
-        type: TIME_VALID
+        type: TIME_VALID,
+        payload: value
     }
 };
 
-export const timing_invalid = ()=>{
+export const timing_invalid = (value)=>{
     return {
-        type: TIME_INVALID
+        type: TIME_INVALID,
+        payload: value
     }
 };
 
@@ -72,14 +74,15 @@ export const deleteQuestion= (id)=> async (dispatch)=> {
 
 export const updateQuestion= (id, formValues)=> async (dispatch)=> {
     console.log("Edit="+formValues)
-    const response=  await axios.patch(`/crackingTheCode/${id}`, formValues);
+    const response=  await axios.put(`/crackingTheCode/${id}`, formValues);
     dispatch({ type: UPDATE_QUESTION, payload: response})
     window.location.replace('/');
     alert('A question has been updated');
 };
 
-export const usersDetail= (name, email, count) => async (dispatch) => {
-    const response= await axios.post('/user',{user:name, email:email, points: count});
+export const usersDetail= (name, email, count, timeValue) => async (dispatch) => {
+    console.log(timeValue);
+    const response= await axios.post('/user',{user:name, email:email, points: count, time: timeValue});
     dispatch({type: USERS_DETAIL, payload: response.data});
 };
 

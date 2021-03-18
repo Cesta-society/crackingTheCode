@@ -7,12 +7,12 @@ class Timer extends React.Component {
     constructor(props){
         super(props);
         this.state= {
-            count: 1500
+            count: localStorage.getItem('x-time-token')
         }
     }
 
     TimingValidity= ()=>{
-        this.props.timing_invalid();
+        this.props.timing_invalid(this.state.count);
     }
 
     renderinfo= ()=>{
@@ -54,7 +54,7 @@ class Timer extends React.Component {
     }
 
     componentDidMount(){
-        this.props.timing_valid();
+        this.props.timing_valid(this.state.count);
         this.setState({
             count: this.props.startCount
         });

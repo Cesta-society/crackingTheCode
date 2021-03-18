@@ -22,7 +22,7 @@ class UpdateQuestion extends React.Component {
                     <h1>Update a Question</h1>
                 </div>
                 <br/>
-               <QuestionForm initialValues={_.pick(this.props.question, 'q1','o1','o2','o3','o4','ans')} onSubmit={this.onSubmit} />
+               <QuestionForm initialValues={_.pick(this.props.question, 'q1','ans')} onSubmit={this.onSubmit} />
             </div>
         );
     }

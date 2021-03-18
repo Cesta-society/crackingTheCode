@@ -27,7 +27,9 @@ class Question extends React.Component {
   };
 
   renderQuestion = () => {
-    if (!this.props.questions) return <div>Loading...</div>;
+
+    if (!this.props.question) 
+      return <div>Loading...</div>;
 
     let name = "ans" + this.props.question._id;
     return (
@@ -41,10 +43,6 @@ class Question extends React.Component {
               </pre>
             </h4>
             <br />
-            {this.props.question.o1 && <p>{this.props.question.o1}</p>}
-            {this.props.question.o2 && <p>{this.props.question.o2}</p>}
-            {this.props.question.o3 && <p>{this.props.question.o3}</p>}
-            {this.props.question.o4 && <p>{this.props.question.o4}</p>}
           </div>
           <div>
             <b>
@@ -52,7 +50,7 @@ class Question extends React.Component {
                 name={name}
                 component={this.renderInput}
                 type="text"
-                width="5vw"
+                width="50vw"
               />
             </b>
             <br />
