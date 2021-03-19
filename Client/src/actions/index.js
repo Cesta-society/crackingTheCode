@@ -1,5 +1,5 @@
 import axios from '../axios';
-import history from '../history';
+import shuffle from 'shuffle-array';
 import { SIGN_IN, SIGN_OUT, ADD_QUESTION, UPDATE_QUESTION, FETCH_QUESTIONS, FETCH_QUESTION, DELETE_QUESTION, USERS_DETAIL, FETCH_USERS, TIME_VALID, TIME_INVALID, SELECTED_ID, FULL_SCREEN} from './types'
 
 export const signIn = (user)=>{
@@ -57,7 +57,7 @@ export const addQuestion= (formValues)=> async (dispatch)=>{
 
 export const fetchQuestions= () => async (dispatch) => {
     const response= await axios.get('/crackingTheCode');
-    dispatch({type: FETCH_QUESTIONS, payload: response.data});
+    dispatch({type: FETCH_QUESTIONS, payload: shuffle.pick(response.data , {'picks': 15 })});
 };
 
 export const fetchQuestion= (id) => async (dispatch) => {

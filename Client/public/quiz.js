@@ -8,9 +8,6 @@ $(document).on("keydown", function (e) {
     }
 });
 
-document.addEventListener('contextmenu', event => event.preventDefault());
-
-/*
 function disableselect(e) {
     return false;
 }
@@ -26,4 +23,12 @@ if (window.sidebar) {
     document.onclick = reEnable;
 }
 
-*/
+document.oncontextmenu=RightMouseDown;
+document.onmousedown = mouseDown; 
+
+function mouseDown(e) {
+    if (e.which==3) {
+        alert("Right Click is disabled for this competition");
+    }
+}
+function RightMouseDown() { return false;}
