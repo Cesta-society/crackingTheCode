@@ -35,7 +35,7 @@ class Questions extends React.Component {
         });
         console.log(formValues);
         this.setState({count:c});
-        this.props.usersDetail(this.props.username, this.props.email, this.state.count, 1500-parseInt(this.props.timeValue));
+        this.props.usersDetail(this.props.username, this.props.email, this.state.count, 1800-parseInt(this.props.timeValue));
         this.setState({flag:1})
         document.getElementById('alert').click();
         localStorage.setItem('x-submit-token', '100002123#12231#123');
